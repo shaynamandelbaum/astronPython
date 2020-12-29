@@ -1,22 +1,30 @@
-from enum import Enum
-class Direction(Enum):
-    BACK = 1
-    FORWARD = 2
-    SIDEWAYS = 3
-    DIAGONAL = 4
+import constants
 
 
 class Movement:
-    def __init__(self, exist: bool, dir: Direction, num: int):
+    def __init__(self, exist: bool, direction: constants.Direction, num: int):
         self.exist = exist
-        self.dir = dir
+        self.direction = direction
         self.num = num
 
+
 class PlayerCards:
-    def __init__(self, planeMovement:Movement, boardMovement:Movement):
-        self.planeMovement = planeMovement
-        self.boardMovement = boardMovement
+    def __init__(self, plane_movement: Movement, board_movement: Movement):
+        self.plane_movement = plane_movement
+        self.board_movement = board_movement
+
 
 class HazardCards:
-    def __init__(self, pointValue: int):
-        if(not(pointValue == -5 or pointValue == 10))
+    def __init__(self, point_value: int):
+        if not (point_value in constants.HAZARD_NUMBERS):
+            raise ValueError("not valid airport landing card value")
+        else:
+            self.point_value = point_value
+
+
+class AirportLandingCards:
+    def __init__(self, point_value: int):
+        if not (point_value in constants.AIRPORT_LANDING_NUMBERS):
+            raise ValueError("not valid airport landing card value")
+        else:
+            self.point_value = point_value
