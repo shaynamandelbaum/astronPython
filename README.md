@@ -1,6 +1,6 @@
 # astronPython
 
-movement cards: (55 cards)
+movement cards: (54 cards)
 move plane 1 sideways: 3
 move plane 2 sideways: 4
 move plane 3 sideways: 2

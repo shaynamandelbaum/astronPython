@@ -1,8 +1,46 @@
 from enum import Enum, unique
+import pygame
+import random
+
+# functional programming doesnt make sense with this but some should be abstracted
+
+
+# Visual Constants
+
+# GET MAP IMAGE AND SCALING
+# relative path of file
+MAP_IMAGE = pygame.image.load('astronMap.png')
+MAP_WIDTH = 1860
+MAP_HEIGHT = 413
+# 2481, 554 are the width and height of the original map therefore this minimizes it proporitionally to about 75% of
+# the original height so therefore 1860 and 413
+SCALED_MAP = pygame.transform.smoothscale(MAP_IMAGE, (MAP_WIDTH, MAP_HEIGHT))
+
+# SCREEN DISPLAY
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+# PLACING MAP ON SCREEN
+# location of where to start displaying the map on the screen
+SCREEN_WIDTH_TO_START_MAP = 100
+SCREEN_HEIGHT_TO_START_MAP = 100
+# location of starting map image
+MAP_STARTING_WIDTH_FOR_SCREEN = 300
+MAP_STARTING_HEIGHT_FOR_SCREEN = 50
+
+# size of map on screen
+MAP__WIDTH_SIZE_DISPLAY = 800
+MAP_HEIGHT_SIZE_DISPLAY = 400
+
+# place map on the screen
+screen.blit(SCALED_MAP, (SCREEN_WIDTH_TO_START_MAP, SCREEN_HEIGHT_TO_START_MAP),
+            (MAP_STARTING_WIDTH_FOR_SCREEN, MAP_STARTING_HEIGHT_FOR_SCREEN,
+             MAP__WIDTH_SIZE_DISPLAY, MAP_HEIGHT_SIZE_DISPLAY))
 
 
 # left to do for model:
-# input card data and create list
+# tiles
 # organize better
 # controller? nah, need to work on model file getting the set up data and the changing using cards and replenishing
 # also make notes for someone to change if needed
@@ -17,7 +55,10 @@ class Location:
 
 # variables that can be changed
 HAZARD_NUMBERS = [5, 10]
+HAZARD_NUMBER_OF_CARDS_PER_TYPE = [22, 14]
 AIRPORT_LANDING_NUMBERS = [10, 15]
+# Must be same size as array above
+AIRPORT_LANDING_NUMBER_OF_CARDS_PER_TYPE = [26, 10]
 
 # starting places
 STARTING_PLACES_1 = Location(2, 2)

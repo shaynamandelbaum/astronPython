@@ -13,18 +13,3 @@ class PlayerCards:
         self.plane_movement = plane_movement
         self.board_movement = board_movement
 
-
-class HazardCards:
-    def __init__(self, point_value: int):
-        if not (point_value in constants.HAZARD_NUMBERS):
-            raise ValueError("not valid airport landing card value")
-        else:
-            self.point_value = point_value
-
-
-class AirportLandingCards:
-    def __init__(self, point_value: int):
-        if not (point_value in constants.AIRPORT_LANDING_NUMBERS):
-            raise ValueError("not valid airport landing card value")
-        else:
-            self.point_value = point_value
